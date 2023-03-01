@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'weather/current', to: 'weather#current'
+  get 'weather/historical', to: 'weather#historical'
+  get 'weather/historical/max', to: 'weather#temp_max'
 end
