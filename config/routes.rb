@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  namespace 'weather' do
-    get 'current', to: 'weather#current'
-    get 'historical', to: 'weather#historical'
-    get 'historical/max', to: 'weather#temp_max'
+  namespace 'api' do
+    namespace 'v1' do
+      get 'weather/current', to: 'weather#current'
+      get 'weather/historical', to: 'weather#historical'
+      get 'weather/historical/max', to: 'weather#temp_max'
+    end  
   end
 end

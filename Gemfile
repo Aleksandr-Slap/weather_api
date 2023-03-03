@@ -37,6 +37,7 @@ gem "bootsnap", require: false
 # gem "rack-cors"
 
 gem 'httparty', '~> 0.13.7'
+gem 'rubocop-rails', require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
