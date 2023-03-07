@@ -19,7 +19,7 @@ module Api
       def historical
         request_response
         hourly_temp = {}
-        @respone_body.each { |_1| hourly_temp[_1['LocalObservationDateTime'].to_time] = _1['Temperature']['Metric']['Value'] }
+        @respone_body.each { hourly_temp[_1['LocalObservationDateTime'].to_time] = _1['Temperature']['Metric']['Value'] }
 
         render json: hourly_temp
       end
@@ -36,7 +36,19 @@ module Api
         get_hourly_temperature
 
         render json: @all_temp.min
-      end  
+      end
+
+      def temp_average
+        request_response
+        get_hourly_temperature
+        average_temp = @all_temp.sum / @all_temp.length
+
+        render json: average_temp.round(1)
+      end
+
+      def by_time
+        render json: Time.at(params[:timestamp].to_i)
+      end 
 
       private
 
