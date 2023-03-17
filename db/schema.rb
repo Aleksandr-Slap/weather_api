@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_114127) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_17_172513) do
   # These are extensions that must be enabled in order to support this database
+  enable_extension "hstore"
   enable_extension "plpgsql"
 
-  create_table "weathers", force: :cascade do |t|
-    t.float "temperature", null: false
-    t.datetime "data", null: false
+  create_table "forecasts", force: :cascade do |t|
+    t.float "max", null: false
+    t.float "min", null: false
+    t.float "avg", null: false
+    t.hstore "history", default: [], null: false, array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

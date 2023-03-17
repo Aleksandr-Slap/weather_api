@@ -5,13 +5,13 @@ module Api
     class WeathersController < ApplicationController
       
       def current
-        current_temp = RequestToWeatherCom.current_temp
+        current_temp = WeatheCreateService.current_temp
 
         render json: current_temp
       end
 
       def historical
-        hourly_temp = RequestToWeatherCom.historical_temp
+        hourly_temp = WeatheCreateService.historical_temp
 
         render json: hourly_temp
       end
@@ -42,7 +42,7 @@ module Api
       end
 
       private def array_with_temperature_day
-        @all_temp = RequestToWeatherCom.temp_max_min
+        @all_temp = WeatheCreateService.temp_max_min
       end  
     end
   end

@@ -1,9 +1,0 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
-one:
-  temperature: 1.5
-  data: 2023-03-13 14:41:27
-
-two:
-  temperature: 1.5
-  data: 2023-03-13 14:41:27

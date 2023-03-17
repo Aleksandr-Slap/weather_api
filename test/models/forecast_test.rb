@@ -1,6 +1,6 @@
 require "test_helper"
 
-class WeatherTest < ActiveSupport::TestCase
+class ForecastTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
