@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class ForecastCreateService < BaseService
-
-  include HTTParty  
+  include HTTParty
 
   HISTORY_WEATHER_URL = "http://dataservice.accuweather.com/currentconditions/v1/295212/historical/24?#{ENV.fetch('API_KEY_WEATHER')}"
 
@@ -21,19 +20,19 @@ class ForecastCreateService < BaseService
 
   def weather_history_in_24_hours
     JSON.parse(HTTParty.get(HISTORY_WEATHER_URL).body).map do |hour|
-      { time: hour["LocalObservationDateTime"].to_time.beginning_of_hour, temp: hour["Temperature"]["Metric"]["Value"]}
-    end  
+      { time: hour['LocalObservationDateTime'].to_time.beginning_of_hour, temp: hour['Temperature']['Metric']['Value'] }
+    end
   end
 
   def max_temp(history)
     history.map { _1[:temp] }.max
-  end 
+  end
 
   def min_temp(history)
     history.map { _1[:temp] }.min
   end
 
   def avg_temp(history)
-    history.map {_1[:temp] }.sum / history.size
+    history.map { _1[:temp] }.sum / history.size
   end
 end
