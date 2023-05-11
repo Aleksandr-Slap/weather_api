@@ -41,15 +41,19 @@ gem 'bootsnap', require: false
 gem 'httparty', '~> 0.13.7'
 gem 'rubocop-rails', require: false
 gem 'rufus-scheduler'
+gem 'pry-rails'
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'rspec-rails', '~> 6.0.0'
+  gem 'capybara'
+  gem 'factory_bot_rails'
   gem 'dotenv-rails'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'rails-controller-testing'
 end
 
 group :development do
   gem 'pry-byebug'
-  gem 'pry-rails'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
